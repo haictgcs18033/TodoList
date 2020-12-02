@@ -1,12 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
-import './css/style.css'
-import Main from './Components/Main';
+import BaiTapGioHang from './Components/BaiTapGioHang';
+
+
 
 function App() {
   return (
     <div className="App">
- <Main></Main>
+ <BaiTapGioHang></BaiTapGioHang>
     </div>
   );
 }
