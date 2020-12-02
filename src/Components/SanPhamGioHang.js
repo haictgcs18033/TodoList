@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import SanPham from './data/SanPham'
+import SanPham from './SanPham'
 
 
 
