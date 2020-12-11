@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
-import BaiTapXucXac from './Components/BaiTapGameXucXac/BaiTapXucXac';
+import BaiTapDatVePhim from './Components/BaiTapDatVePhim/BaiTapDatVePhim';
+
 
 
 
@@ -8,7 +9,7 @@ import BaiTapXucXac from './Components/BaiTapGameXucXac/BaiTapXucXac';
 function App() {
   return (
     <div className="App">
-      <BaiTapXucXac></BaiTapXucXac>
+    <BaiTapDatVePhim></BaiTapDatVePhim>
     </div>
   );
 }
