@@ -1,6 +1,6 @@
 import { combineReducers, createStore } from 'redux'
-import { BaiTapOanTuXiReducer } from './BaiTapOanTuXiReducer'
+import {BaiTapQuanLyNguoiDungReducer} from './BaiTapQuanLyNguoiDungReducer'
 const rootReducer = combineReducers({
-    stateOanTuXi: BaiTapOanTuXiReducer
+     BaiTapQuanLyNguoiDungReducer
 })
 export const store = createStore(rootReducer)
