@@ -6,16 +6,16 @@ import { connect } from 'react-redux';
 class TableNguoiDung extends Component {
   renderNguoiDung = () => {
     return this.props.mangNguoiDung.map((user, index) => {
-        // index ++
+      // index ++
       return (
         <tr key={index}>
-          <td>{index+1}</td>
+          <td>{index + 1}</td>
           <td>{user.taiKhoanKH}</td>
           <td>{user.hoTen}</td>
           <td>{user.matKhau}</td>
           <td>{user.email}</td>
           <td>{user.soDienThoai}</td>
-          <td>Loai nguoi dung</td>
+          <td>{user.loaiKhachHang}</td>
           <td>
             <button className='btn btn-danger'>Xoa</button>
           </td>
@@ -29,7 +29,9 @@ class TableNguoiDung extends Component {
   render() {
     return (
       <div>
-        <table className='table mt-4 table-striped' style={{width:"90%",margin:"0 auto"}}>
+        <table
+          className='table mt-4 table-striped'
+          style={{ width: '90%', margin: '0 auto' }}>
           <thead className=' bg-primary text-light'>
             <tr>
               <th>STT</th>
