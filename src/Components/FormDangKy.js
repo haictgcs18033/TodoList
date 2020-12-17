@@ -27,8 +27,10 @@ class FormDangKy extends Component {
         //   this.setState({
         //       selectValue:event.target.value
         //   })
-      
-        this.props.nguoiDungRedux.values.khachHang = event.target.value
+      this.props.dispatch({
+          type:'SET_OPTION',
+          ?????
+      })
     }
     render() {
         let { taiKhoanKH, matKhau, hoTen, email, soDienThoai, khachHang } = this.props.nguoiDungRedux.values;
