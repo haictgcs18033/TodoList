@@ -46,15 +46,7 @@ const stateDefault = {
 export const BaiTapQuanLyNguoiDungReducer = (state = stateDefault, action) => {
   switch (action.type) {
     case 'THEM_KHACH_HANG': {
-      // let index = state.mangNguoiDung.findIndex(
-      //   (user) => user.id === state.nguoiDungRedux.values.id
-      // );
-      // if (index === -1) {
-      state.mangNguoiDung = [
-        ...state.mangNguoiDung,
-        state.nguoiDungRedux.values,
-      ];
-      // }
+      state.mangNguoiDung = [...state.mangNguoiDung, state.nguoiDungRedux.values];
       return { ...state };
     }
     case 'SWITCH_CUSTOMER_TYPE':

@@ -153,7 +153,7 @@ class FormDangKy extends Component {
                     <div className='card-footer'>
                         <button className='btn btn-success mr-3' type='submit'>
                             Dang ky
-            </button>
+                        </button>
                         <button className='btn btn-primary' type='button' onClick={() => {
                             const action = {
                                 type: 'CAP_NHAT_NGUOI_DUNG',
