@@ -16,13 +16,13 @@ const stateDefault = {
     khachhang2: 'Khach Hang 2',
     khachhang3: 'Khach Hang 3',
   },
-  nguoiDungSua:{
-      taiKhoanKH:'',
-      matKhau:'',
-      hoTen:'',
-      email:'',
-      soDienThoai:'',
-      loaiKhachHang:'Khach Hang 1'
+  nguoiDungSua: {
+    taiKhoanKH: '',
+    matKhau: '',
+    hoTen: '',
+    email: '',
+    soDienThoai: '',
+    loaiKhachHang: 'Khach Hang 1',
   },
   nguoiDungRedux: {
     values: {
@@ -34,11 +34,11 @@ const stateDefault = {
       loaiKhachHang: 'Khach Hang 1',
     },
     errors: {
-        taiKhoanKH: '',
-        matKhau: '',
-        hoTen: '',
-        email: '',
-        soDienThoai: '',
+      taiKhoanKH: '',
+      matKhau: '',
+      hoTen: '',
+      email: '',
+      soDienThoai: '',
     },
   },
 };
@@ -46,15 +46,15 @@ const stateDefault = {
 export const BaiTapQuanLyNguoiDungReducer = (state = stateDefault, action) => {
   switch (action.type) {
     case 'THEM_KHACH_HANG': {
-      let index = state.mangNguoiDung.findIndex(
-        (user) => user.id === state.nguoiDungRedux.values.id
-      );
-      if (index !== -1) {
-        state.mangNguoiDung = [
-          ...state.mangNguoiDung,
-          state.nguoiDungRedux.values,
-        ];
-      }
+      // let index = state.mangNguoiDung.findIndex(
+      //   (user) => user.id === state.nguoiDungRedux.values.id
+      // );
+      // if (index === -1) {
+      state.mangNguoiDung = [
+        ...state.mangNguoiDung,
+        state.nguoiDungRedux.values,
+      ];
+      // }
       return { ...state };
     }
     case 'SWITCH_CUSTOMER_TYPE':
@@ -64,32 +64,35 @@ export const BaiTapQuanLyNguoiDungReducer = (state = stateDefault, action) => {
       state.nguoiDungRedux = action.nguoiDungRedux;
       return { ...state };
     }
-    case 'XOA_NGUOI_DUNG' :{
-        let mangUserCapNhat=[...state.mangNguoiDung];
-        mangUserCapNhat=mangUserCapNhat.filter(user=>user.taiKhoanKH !== action.taiKhoanKH);
-        state.mangNguoiDung=mangUserCapNhat;
-        return{...state}
+    case 'XOA_NGUOI_DUNG': {
+      let mangUserCapNhat = [...state.mangNguoiDung];
+      mangUserCapNhat = mangUserCapNhat.filter(
+        (user) => user.taiKhoanKH !== action.taiKhoanKH
+      );
+      state.mangNguoiDung = mangUserCapNhat;
+      return { ...state };
     }
-    case 'SUA_USER':{
-        state.nguoiDungSua={...action.nguoiDungSua};
-        let newNguoiDung={...state.nguoiDungRedux};
-        newNguoiDung.values={...action.nguoiDungSua};
-        return{...state,nguoiDungRedux:newNguoiDung};
-     
+    case 'SUA_USER': {
+      state.nguoiDungSua = { ...action.nguoiDungSua };
+      let newNguoiDung = { ...state.nguoiDungRedux };
+      newNguoiDung.values = { ...action.nguoiDungSua };
+      return { ...state, nguoiDungRedux: newNguoiDung };
     }
-    case 'CAP_NHAT_NGUOI_DUNG':{
-        const mangUserCapNhat=[...state.mangNguoiDung];
-        let userUpdate=mangUserCapNhat.find(user=>user.taiKhoanKH===state.nguoiDungRedux.values.taiKhoanKH);
-        console.log(userUpdate);
-         if(userUpdate){
-             userUpdate.matKhau=state.nguoiDungRedux.values.matKhau;
-             userUpdate.email=state.nguoiDungRedux.values.email;
-             userUpdate.hoTen=state.nguoiDungRedux.values.hoTen;
-             userUpdate.soDienThoai=state.nguoiDungRedux.values.soDienThoai;
-             userUpdate.loaiKhachHang=state.nguoiDungRedux.values.loaiKhachHang
-         }
-         state.mangNguoiDung=mangUserCapNhat
-         return{...state}
+    case 'CAP_NHAT_NGUOI_DUNG': {
+      const mangUserCapNhat = [...state.mangNguoiDung];
+      let userUpdate = mangUserCapNhat.find(
+        (user) => user.taiKhoanKH === state.nguoiDungRedux.values.taiKhoanKH
+      );
+      console.log(userUpdate);
+      if (userUpdate) {
+        userUpdate.matKhau = state.nguoiDungRedux.values.matKhau;
+        userUpdate.email = state.nguoiDungRedux.values.email;
+        userUpdate.hoTen = state.nguoiDungRedux.values.hoTen;
+        userUpdate.soDienThoai = state.nguoiDungRedux.values.soDienThoai;
+        userUpdate.loaiKhachHang = state.nguoiDungRedux.values.loaiKhachHang;
+      }
+      state.mangNguoiDung = mangUserCapNhat;
+      return { ...state };
     }
     default:
       return { ...state };
