@@ -1,6 +1,7 @@
-import { combineReducers, createStore } from 'redux'
-import {BaiTapQuanLyNguoiDungReducer} from './BaiTapQuanLyNguoiDungReducer'
+import { applyMiddleware,combineReducers, createStore } from 'redux'
+import {TodoListReducer} from './reducers/TodoListReducer'
+import reduxThunk from 'redux-thunk'
 const rootReducer = combineReducers({
-     BaiTapQuanLyNguoiDungReducer
+    TodoListReducer
 })
-export const store = createStore(rootReducer)
+export const store = createStore(rootReducer,applyMiddleware(reduxThunk))
