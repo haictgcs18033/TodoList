@@ -79,6 +79,7 @@ class TodoList extends Component {
     addTask =  (e) => {
         e.preventDefault();
        this.props.dispatch(addDataTask(this.props.task.values.taskName))
+       console.log(this.props.task.values.taskName);
     }
     //Xu li xoa task
     delTask = (taskName) => {
